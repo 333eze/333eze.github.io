@@ -84,8 +84,7 @@ footer{color:var(--muted);font-size:.85rem;padding-top:20px}
       </div>
       <label for="nom">Nombre y apellido</label>
       <input id="nom" type="text" autocomplete="name">
-      <label for="msg">Mensaje (opcional)</label>
-      <textarea id="msg" rows="3"></textarea>
+      
       <button class="btn" id="send" type="button">Confirmar por WhatsApp</button>
     </div>
   </section>
@@ -111,8 +110,8 @@ document.getElementById("send").addEventListener("click", function(){
   var nom = document.getElementById("nom").value.trim();
   if(!nom){ document.getElementById("nom").focus(); return; }
   var asis = document.querySelector('input[name="asis"]:checked').value;
-  var msg = document.getElementById("msg").value.trim();
-  var text = "Hola Ezequiel! Soy " + nom + ". " + asis + " a tu cumple de 18 el 22/11." + (msg ? " " + msg : "");
+  
+  var text = "Hola Ezequiel! Soy " + nom + ". " + asis + " a tu cumple de 18 el 22/11.";
   var url = (WHATSAPP ? "https://wa.me/" + WHATSAPP : "https://wa.me/") + "?text=" + encodeURIComponent(text);
   window.open(url, "_blank");
 });
